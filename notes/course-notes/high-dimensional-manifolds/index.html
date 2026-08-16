@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en" data-language="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta
+      name="description"
+      content="Notes on the geometry and topology of high-dimensional manifolds by Chen Liu."
+    >
+
+    <title>High-Dimensional Manifolds | Chen Liu</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+      :root {
+        --project-navy: #173a52;
+        --project-red: #a24f55;
+        --project-text: #5f6b76;
+        --project-line: rgba(23, 58, 82, 0.18);
+        --project-background: #f8f5ed;
+        --project-gold: #bd9250;
+      }
+
+      .project-page {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--project-navy);
+        background: var(--project-background);
+      }
+
+      .project-main {
+        width: min(1420px, calc(100% - 68px));
+        margin: 0 auto;
+        padding: 72px 0 100px;
+      }
+
+      .project-eyebrow {
+        margin: 0 0 22px;
+        color: var(--project-red);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .project-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+        gap: 40px;
+      }
+
+      .project-title {
+        max-width: 1050px;
+        margin: 0;
+        font-family:
+          Georgia,
+          "Times New Roman",
+          "Songti SC",
+          serif;
+        font-size: clamp(3.2rem, 6.6vw, 6rem);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 21px;
+        border: 1px solid var(--project-navy);
+        color: var(--project-navy);
+        font-weight: 700;
+        text-decoration: none;
+        transition:
+          color 160ms ease,
+          background 160ms ease;
+      }
+
+      .back-link:hover,
+      .back-link:focus-visible {
+        color: #ffffff;
+        background: var(--project-navy);
+      }
+
+      .project-description {
+        max-width: 1050px;
+        margin: 34px 0 40px;
+        color: var(--project-text);
+        font-family:
+          Georgia,
+          "Times New Roman",
+          "Songti SC",
+          serif;
+        font-size: clamp(1.08rem, 1.6vw, 1.38rem);
+        line-height: 1.75;
+      }
+
+      .project-metadata {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border-top: 2px solid var(--project-navy);
+        border-bottom: 1px solid var(--project-line);
+      }
+
+      .metadata-item {
+        padding: 22px 28px;
+        border-left: 1px solid var(--project-line);
+      }
+
+      .metadata-item:first-child {
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      .metadata-label {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--project-red);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+      }
+
+      .metadata-value {
+        display: block;
+        font-family:
+          Georgia,
+          "Times New Roman",
+          "Songti SC",
+          serif;
+        font-size: 1.08rem;
+        line-height: 1.45;
+      }
+
+      .notes-section {
+        padding-top: 58px;
+      }
+
+      .notes-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 20px;
+      }
+
+      .notes-title {
+        margin: 0;
+        font-family:
+          Georgia,
+          "Times New Roman",
+          "Songti SC",
+          serif;
+        font-size: clamp(2.1rem, 4vw, 3.5rem);
+        font-weight: 400;
+      }
+
+      .notes-count {
+        margin: 0;
+        color: var(--project-red);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+      }
+
+      .notes-list {
+        border-top: 2px solid var(--project-navy);
+      }
+
+      .note-row {
+        display: grid;
+        grid-template-columns: 80px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 30px;
+        padding: 27px 10px;
+        border-bottom: 1px solid var(--project-line);
+      }
+
+      .note-number {
+        color: var(--project-red);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+      }
+
+      .note-information {
+        min-width: 0;
+      }
+
+      .note-meta {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--project-gold);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .note-name {
+        display: block;
+        font-family:
+          Georgia,
+          "Times New Roman",
+          "Songti SC",
+          serif;
+        font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+        line-height: 1.35;
+      }
+
+      .pdf-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 18px;
+        border: 1px solid var(--project-navy);
+        color: var(--project-navy);
+        font-size: 0.84rem;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          color 160ms ease,
+          background 160ms ease;
+      }
+
+      .pdf-link:hover,
+      .pdf-link:focus-visible {
+        color: #ffffff;
+        background: var(--project-navy);
+      }
+
+      .project-notice {
+        max-width: 900px;
+        margin: 30px 0 0;
+        color: var(--project-text);
+        font-size: 0.85rem;
+        line-height: 1.7;
+      }
+
+      .project-footer {
+        display: flex;
+        justify-content: space-between;
+        width: min(1420px, calc(100% - 68px));
+        margin: 0 auto;
+        padding: 28px 0 38px;
+        border-top: 1px solid var(--project-line);
+        color: var(--project-text);
+        font-size: 0.84rem;
+      }
+
+      .project-footer p {
+        margin: 0;
+      }
+
+      .project-footer a {
+        color: var(--project-navy);
+        text-decoration: none;
+      }
+
+      @media (max-width: 900px) {
+        .project-main {
+          width: min(100% - 38px, 1420px);
+          padding: 56px 0 80px;
+        }
+
+        .project-heading {
+          grid-template-columns: 1fr;
+          align-items: start;
+          gap: 28px;
+        }
+
+        .back-link {
+          justify-self: start;
+        }
+
+        .project-metadata {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .metadata-item:nth-child(3) {
+          border-left: 0;
+          padding-left: 0;
+          border-top: 1px solid var(--project-line);
+        }
+
+        .metadata-item:nth-child(4) {
+          border-top: 1px solid var(--project-line);
+        }
+
+        .note-row {
+          grid-template-columns: 55px minmax(0, 1fr);
+          gap: 18px;
+        }
+
+        .pdf-link {
+          grid-column: 2;
+          justify-self: start;
+        }
+
+        .project-footer {
+          width: min(100% - 38px, 1420px);
+        }
+      }
+
+      @media (max-width: 560px) {
+        .project-title {
+          font-size: 3.2rem;
+        }
+
+        .project-metadata {
+          grid-template-columns: 1fr;
+        }
+
+        .metadata-item,
+        .metadata-item:first-child,
+        .metadata-item:nth-child(3) {
+          padding: 17px 0;
+          border-top: 1px solid var(--project-line);
+          border-left: 0;
+        }
+
+        .metadata-item:first-child {
+          border-top: 0;
+        }
+
+        .notes-heading {
+          align-items: start;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .note-row {
+          grid-template-columns: 1fr;
+          padding: 24px 2px;
+        }
+
+        .pdf-link {
+          grid-column: 1;
+        }
+
+        .project-footer {
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="project-page">
+    <a
+      class="skip-link"
+      href="#main-content"
+      data-en="Skip to content"
+      data-zh="跳转到主要内容"
+    >
+      Skip to content
+    </a>
+
+    <header class="site-header">
+      <div class="nav-container">
+        <a class="brand" href="/" aria-label="Homepage">
+          <span class="brand-mark">CL</span>
+          <span class="brand-name">Chen Liu</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="/#about" data-en="About" data-zh="关于">About</a>
+          <a href="/#interests" data-en="Interests" data-zh="兴趣">
+            Interests
+          </a>
+          <a href="/notes/" data-en="Notes" data-zh="笔记">Notes</a>
+          <a href="/#education" data-en="Education" data-zh="教育">
+            Education
+          </a>
+        </nav>
+
+        <div class="language-switch" aria-label="Language selector">
+          <button
+            class="language-button is-active"
+            type="button"
+            data-language="en"
+          >
+            EN
+          </button>
+
+          <span aria-hidden="true">/</span>
+
+          <button
+            class="language-button"
+            type="button"
+            data-language="zh"
+          >
+            中文
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="project-main">
+      <section class="project-hero">
+        <p
+          class="project-eyebrow"
+          data-en="Course notes · 2026"
+          data-zh="课程笔记 · 2026"
+        >
+          Course notes · 2026
+        </p>
+
+        <div class="project-heading">
+          <h1
+            class="project-title"
+            data-en="Geometry and Topology of High-Dimensional Manifolds"
+            data-zh="高维流形的几何与拓扑"
+          >
+            Geometry and Topology of High-Dimensional Manifolds
+          </h1>
+
+          <a
+            class="back-link"
+            href="/notes/course-notes/"
+            data-en="All course notes"
+            data-zh="全部课程笔记"
+          >
+            All course notes
+          </a>
+        </div>
+
+        <p
+          class="project-description"
+          data-en="These notes were prepared while studying Professor Yang Su's course on the geometry and topology of high-dimensional manifolds at the 2026 Geometry and Topology Summer School at Sichuan University. The collection will be expanded and revised as the notes are completed."
+          data-zh="本系列笔记整理自我在四川大学 2026 年几何与拓扑暑期学校学习苏阳教授“高维流形的几何与拓扑”课程期间的记录；后续内容将随整理进度持续补充和修订。"
+        >
+          These notes were prepared while studying Professor Yang Su's
+          course on the geometry and topology of high-dimensional
+          manifolds at the 2026 Geometry and Topology Summer School at
+          Sichuan University. The collection will be expanded and
+          revised as the notes are completed.
+        </p>
+
+        <div class="project-metadata">
+          <div class="metadata-item">
+            <span
+              class="metadata-label"
+              data-en="Institution"
+              data-zh="学校"
+            >
+              Institution
+            </span>
+
+            <span
+              class="metadata-value"
+              data-en="Sichuan University"
+              data-zh="四川大学"
+            >
+              Sichuan University
+            </span>
+          </div>
+
+          <div class="metadata-item">
+            <span
+              class="metadata-label"
+              data-en="Instructor"
+              data-zh="授课教师"
+            >
+              Instructor
+            </span>
+
+            <span
+              class="metadata-value"
+              data-en="Professor Yang Su"
+              data-zh="苏阳教授"
+            >
+              Professor Yang Su
+            </span>
+          </div>
+
+          <div class="metadata-item">
+            <span
+              class="metadata-label"
+              data-en="Period"
+              data-zh="时间"
+            >
+              Period
+            </span>
+
+            <span
+              class="metadata-value"
+              data-en="July 2026"
+              data-zh="2026 年 7 月"
+            >
+              July 2026
+            </span>
+          </div>
+
+          <div class="metadata-item">
+            <span
+              class="metadata-label"
+              data-en="Status"
+              data-zh="状态"
+            >
+              Status
+            </span>
+
+            <span
+              class="metadata-value"
+              data-en="In progress"
+              data-zh="持续整理中"
+            >
+              In progress
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="notes-section" aria-labelledby="available-notes">
+        <div class="notes-heading">
+          <h2
+            id="available-notes"
+            class="notes-title"
+            data-en="Available Notes"
+            data-zh="现有笔记"
+          >
+            Available Notes
+          </h2>
+
+          <p
+            class="notes-count"
+            data-en="1 PDF"
+            data-zh="1 份 PDF"
+          >
+            1 PDF
+          </p>
+        </div>
+
+        <div class="notes-list">
+          <article class="note-row">
+            <span class="note-number">01</span>
+
+            <div class="note-information">
+              <span
+                class="note-meta"
+                data-en="Day 1 · 11 pages · Work in progress"
+                data-zh="第一天 · 11 页 · 持续整理中"
+              >
+                Day 1 · 11 pages · Work in progress
+              </span>
+
+              <span
+                class="note-name"
+                data-en="Introduction to Topological Geometry and the h-Cobordism Theorem"
+                data-zh="拓扑几何导论与 h-配边定理"
+              >
+                Introduction to Topological Geometry and the
+                h-Cobordism Theorem
+              </span>
+            </div>
+
+            <a
+              class="pdf-link"
+              href="/notes/Day1-Notes.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              <span data-en="Open PDF" data-zh="打开 PDF">
+                Open PDF
+              </span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+
+        <p
+          class="project-notice"
+          data-en="These are personal study notes rather than official course materials. Corrections and revisions may be made as the collection develops."
+          data-zh="这些内容是个人学习笔记，并非课程官方材料；后续整理过程中可能继续修订和更正。"
+        >
+          These are personal study notes rather than official course
+          materials. Corrections and revisions may be made as the
+          collection develops.
+        </p>
+      </section>
+    </main>
+
+    <footer class="project-footer">
+      <p>© <span id="current-year"></span> Chen Liu</p>
+
+      <a href="/notes/" data-en="Notes archive" data-zh="笔记档案">
+        Notes archive
+      </a>
+    </footer>
+
+    <script>
+      const languageButtons =
+        document.querySelectorAll("[data-language]");
+
+      const translatableElements =
+        document.querySelectorAll("[data-en][data-zh]");
+
+      function setLanguage(language) {
+        document.documentElement.lang =
+          language === "zh" ? "zh-CN" : "en";
+
+        document.documentElement.dataset.language = language;
+
+        translatableElements.forEach((element) => {
+          const translation = element.dataset[language];
+
+          if (translation !== undefined) {
+            element.textContent = translation;
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive =
+            button.dataset.language === language;
+
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute(
+            "aria-pressed",
+            String(isActive)
+          );
+        });
+
+        document.title =
+          language === "zh"
+            ? "高维流形的几何与拓扑 | 刘宸"
+            : "High-Dimensional Manifolds | Chen Liu";
+
+        try {
+          localStorage.setItem(
+            "preferred-language",
+            language
+          );
+        } catch (error) {
+          // The page still works if storage is unavailable.
+        }
+      }
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setLanguage(button.dataset.language);
+        });
+      });
+
+      let preferredLanguage = "en";
+
+      try {
+        const savedLanguage =
+          localStorage.getItem("preferred-language");
+
+        if (
+          savedLanguage === "zh" ||
+          savedLanguage === "en"
+        ) {
+          preferredLanguage = savedLanguage;
+        }
+      } catch (error) {
+        preferredLanguage = "en";
+      }
+
+      setLanguage(preferredLanguage);
+
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
