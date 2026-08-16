@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en" data-language="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Mathematical notes by Chen (Homer) Liu."
+  >
+
+  <meta name="author" content="Chen Liu">
+
+  <title>Mathematical Notes | Chen (Homer) Liu</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .notes-page .main-nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    .notes-page .notes-hero h1 {
+      font-size: clamp(3.4rem, 7vw, 6.8rem);
+    }
+
+    .notes-page .notes-summary {
+      max-width: 720px;
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+
+    .notes-page .notes-placeholder .hero-links {
+      margin-top: 28px;
+    }
+
+    .notes-page .notes-symbol {
+      font-family: var(--sans);
+      font-size: clamp(5rem, 11vw, 9rem);
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.08em;
+    }
+
+    .notes-disclaimer {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+
+    .notes-disclaimer p {
+      margin: 0;
+    }
+
+    .notes-disclaimer p + p {
+      margin-top: 8px;
+    }
+
+    @media (max-width: 720px) {
+      .notes-page .notes-hero h1 {
+        font-size: clamp(3rem, 14vw, 5rem);
+      }
+
+      .notes-page .notes-symbol {
+        font-size: 5rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="notes-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="brand" href="../index.html" aria-label="Homepage">
+        <span class="brand-mark">CL</span>
+        <span class="brand-name">Chen Liu</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a
+          href="../index.html#about"
+          data-en="About"
+          data-zh="关于"
+        >
+          About
+        </a>
+
+        <a
+          href="../index.html#interests"
+          data-en="Interests"
+          data-zh="兴趣"
+        >
+          Interests
+        </a>
+
+        <a
+          href="./"
+          aria-current="page"
+          data-en="Notes"
+          data-zh="笔记"
+        >
+          Notes
+        </a>
+
+        <a
+          href="../index.html#education"
+          data-en="Education"
+          data-zh="教育"
+        >
+          Education
+        </a>
+      </nav>
+
+      <div class="language-switch" aria-label="Language selector">
+        <button
+          class="language-button is-active"
+          type="button"
+          data-language-button="en"
+          aria-pressed="true"
+        >
+          EN
+        </button>
+
+        <span aria-hidden="true">/</span>
+
+        <button
+          class="language-button"
+          type="button"
+          data-language-button="zh"
+          aria-pressed="false"
+        >
+          中文
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero notes-hero">
+      <div class="hero-copy">
+        <p
+          class="eyebrow"
+          data-en="Notes Archive · Chen (Homer) Liu"
+          data-zh="笔记档案 · 刘宸"
+        >
+          Notes Archive · Chen (Homer) Liu
+        </p>
+
+        <h1>
+          <span
+            data-en="Mathematical Notes"
+            data-zh="数学笔记"
+          >
+            Mathematical Notes
+          </span>
+
+          <span
+            class="chinese-name"
+            data-en="Lecture and reading notes"
+            data-zh="课程笔记与读书笔记"
+          >
+            Lecture and reading notes
+          </span>
+        </h1>
+
+        <p
+          class="hero-introduction"
+          data-en="A growing collection of course notes, reading notes, and expository writing from my mathematical studies."
+          data-zh="这里收录我在数学学习过程中整理的课程笔记、读书笔记与综述文章。"
+        >
+          A growing collection of course notes, reading notes, and
+          expository writing from my mathematical studies.
+        </p>
+
+        <div class="hero-links">
+          <a
+            class="secondary-link"
+            href="../index.html"
+            data-en="Back to homepage"
+            data-zh="返回主页"
+          >
+            Back to homepage
+          </a>
+        </div>
+      </div>
+
+      <aside class="focus-card">
+        <p
+          class="card-label"
+          data-en="Featured collection"
+          data-zh="当前专题"
+        >
+          Featured collection
+        </p>
+
+        <ol class="focus-list">
+          <li>
+            <span class="focus-number">01</span>
+            <span
+              data-en="Sichuan University"
+              data-zh="四川大学"
+            >
+              Sichuan University
+            </span>
+          </li>
+
+          <li>
+            <span class="focus-number">02</span>
+            <span
+              data-en="Professor Yang Su"
+              data-zh="苏阳教授"
+            >
+              Professor Yang Su
+            </span>
+          </li>
+
+          <li>
+            <span class="focus-number">03</span>
+            <span
+              data-en="July 2026"
+              data-zh="2026 年 7 月"
+            >
+              July 2026
+            </span>
+          </li>
+        </ol>
+
+        <p
+          class="card-note"
+          data-en="Work in progress."
+          data-zh="持续整理中。"
+        >
+          Work in progress.
+        </p>
+      </aside>
+    </section>
+
+    <section class="content-section" id="scu-summer-school-2026">
+      <div class="section-heading">
+        <span class="section-number">2026</span>
+
+        <h2
+          data-en="Geometry and Topology Summer School"
+          data-zh="四川大学几何与拓扑暑期学校"
+        >
+          Geometry and Topology Summer School
+        </h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="prose">
+          <p
+            data-en="This collection is based on Professor Yang Su's course on the geometry and topology of high-dimensional manifolds at Sichuan University in July 2026."
+            data-zh="本专题整理自苏阳教授于 2026 年 7 月在四川大学几何与拓扑暑期学校讲授的高维流形几何与拓扑课程。"
+          >
+            This collection is based on Professor Yang Su's course on the
+            geometry and topology of high-dimensional manifolds at Sichuan
+            University in July 2026.
+          </p>
+
+          <p
+            data-en="The notes are being prepared one day at a time. Individual installments will be published here, followed later by a revised complete volume."
+            data-zh="笔记将按照课程日期逐日整理并发布；全部完成后，我会进一步校订并合并为完整版本。"
+          >
+            The notes are being prepared one day at a time. Individual
+            installments will be published here, followed later by a revised
+            complete volume.
+          </p>
+        </div>
+
+        <dl class="facts">
+          <div>
+            <dt data-en="Course" data-zh="课程">
+              Course
+            </dt>
+            <dd
+              data-en="High-Dimensional Manifolds"
+              data-zh="高维流形的几何与拓扑"
+            >
+              High-Dimensional Manifolds
+            </dd>
+          </div>
+
+          <div>
+            <dt data-en="Instructor" data-zh="授课教师">
+              Instructor
+            </dt>
+            <dd
+              data-en="Professor Yang Su"
+              data-zh="苏阳教授"
+            >
+              Professor Yang Su
+            </dd>
+          </div>
+
+          <div>
+            <dt data-en="Status" data-zh="状态">
+              Status
+            </dt>
+            <dd
+              data-en="Ongoing"
+              data-zh="持续整理中"
+            >
+              Ongoing
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="content-section" id="day-01">
+      <div class="section-heading">
+        <span class="section-number">01</span>
+
+        <h2
+          data-en="Day 1"
+          data-zh="第一天"
+        >
+          Day 1
+        </h2>
+      </div>
+
+      <article class="notes-placeholder">
+        <div>
+          <p
+            class="status"
+            data-en="PDF · 11 pages · Work in progress"
+            data-zh="PDF · 11 页 · 持续整理中"
+          >
+            PDF · 11 pages · Work in progress
+          </p>
+
+          <h3
+            data-en="Introduction to Topological Geometry and the h-Cobordism Theorem"
+            data-zh="拓扑几何导论与 h-配边定理"
+          >
+            Introduction to Topological Geometry and the h-Cobordism Theorem
+          </h3>
+
+          <div>
+            <p
+              class="notes-summary"
+              data-en="Topics include lens spaces and rigidity, aspherical manifolds, the generalized Poincaré conjecture, the Whitney trick, the h-cobordism theorem, the Alexander trick, and exotic spheres."
+              data-zh="内容涉及透镜空间与刚性、非球状流形、广义庞加莱猜想、Whitney 技巧、h-配边定理、Alexander 技巧以及奇异球面。"
+            >
+              Topics include lens spaces and rigidity, aspherical manifolds,
+              the generalized Poincaré conjecture, the Whitney trick, the
+              h-cobordism theorem, the Alexander trick, and exotic spheres.
+            </p>
+          </div>
+
+          <div class="hero-links">
+            <a
+              class="primary-link"
+              href="Day1-Notes.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-en="Read / Download PDF"
+              data-zh="阅读 / 下载 PDF"
+            >
+              Read / Download PDF
+            </a>
+          </div>
+        </div>
+
+        <span class="notes-symbol" aria-hidden="true">01</span>
+      </article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading">
+        <span class="section-number">Info</span>
+
+        <h2
+          data-en="About These Notes"
+          data-zh="关于这些笔记"
+        >
+          About These Notes
+        </h2>
+      </div>
+
+      <div class="notes-disclaimer">
+        <p
+          data-en="These are personal course notes rather than official materials from the instructor or the summer school."
+          data-zh="这些内容是个人课程笔记，并非授课教师或暑期学校发布的官方材料。"
+        >
+          These are personal course notes rather than official materials from
+          the instructor or the summer school.
+        </p>
+
+        <p
+          data-en="The notes are revised for clarity and mathematical accuracy, but any remaining errors are my own."
+          data-zh="笔记在整理过程中会尽量核对数学内容并改进表述；如仍有疏漏，责任由笔记整理者承担。"
+        >
+          The notes are revised for clarity and mathematical accuracy, but any
+          remaining errors are my own.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      © <span id="current-year"></span> Chen (Homer) Liu · 刘宸
+    </p>
+
+    <p
+      data-en="Built and maintained with GitHub Pages."
+      data-zh="使用 GitHub Pages 构建与维护。"
+    >
+      Built and maintained with GitHub Pages.
+    </p>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const languageButtons =
+      document.querySelectorAll("[data-language-button]");
+    const translatedElements =
+      document.querySelectorAll("[data-en][data-zh]");
+
+    function setLanguage(language) {
+      root.dataset.language = language;
+      root.lang = language === "zh" ? "zh-CN" : "en";
+
+      translatedElements.forEach((element) => {
+        element.textContent = element.dataset[language];
+      });
+
+      languageButtons.forEach((button) => {
+        const isActive =
+          button.dataset.languageButton === language;
+
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      try {
+        localStorage.setItem("preferred-language", language);
+      } catch (error) {
+        // The language switch still works without browser storage.
+      }
+    }
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.languageButton);
+      });
+    });
+
+    let preferredLanguage = "en";
+
+    try {
+      const savedLanguage =
+        localStorage.getItem("preferred-language");
+
+      if (savedLanguage === "zh" || savedLanguage === "en") {
+        preferredLanguage = savedLanguage;
+      }
+    } catch (error) {
+      preferredLanguage = "en";
+    }
+
+    setLanguage(preferredLanguage);
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
